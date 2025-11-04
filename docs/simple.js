@@ -400,6 +400,11 @@ export class View {
 View.previous_captors = [];
 View.prototype.capture = true;
 
+
+export function icon(name){
+	return el.c("span", "material-icons icon", name);
+}
+
 export const { el, div, p, h1, h2, h3 } = View.elements();
 
 
@@ -435,7 +440,6 @@ export class App {
 	}
 	
 	async initialize_page(){ // 3
-		// "/" -> "/home.page.js"
 		// "/path/" -> "/path/page.js"
 		// "/path/sub" -> "/path/sub.page.js"
 
@@ -525,12 +529,7 @@ export class App {
 	}
 
 	static path_to_page_url(path){
-		// "/" -> "/home.page.js"
-		if (path === "/"){
-			return "/home.page.js";
-
-		// "/path/" -> "/path/page.js"
-		} else if (path.endsWith("/")){
+		if (path.endsWith("/")){
 			return path + "page.js";
 		
 		// "/sub" -> "/sub.page.js" or
@@ -546,9 +545,9 @@ App.prototype.loaders = [];
 
 class Font {
     constructor(){
-        this.fontface = new FontFace(this.name, `url(${this.url})`, this.options);\
+        this.fontface = new FontFace(this.name, `url(${this.url})`, this.options);
     }
-    
+
 	async load(){
 		await this.fontface.load();
 		document.fonts.add(this.fontface);
