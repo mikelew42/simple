@@ -544,10 +544,11 @@ export class App {
 App.stylesheets = [];
 App.prototype.loaders = [];
 
-class Font extends Base {
-	initialize(){
-		this.fontface = new FontFace(this.name, `url(${this.url})`, this.options);
-	}
+class Font {
+    constructor(){
+        this.fontface = new FontFace(this.name, `url(${this.url})`, this.options);\
+    }
+    
 	async load(){
 		await this.fontface.load();
 		document.fonts.add(this.fontface);
