@@ -422,6 +422,10 @@ export class App {
 		this.assign(...args);
 		this.initialize_app(); // 1
 	}
+
+    assign(...args){
+		return Object.assign(this, ...args);
+	}
 	
 	async initialize_app(){ // 1
 		this.initialize_root(); // 2
