@@ -8,3 +8,5 @@ div(el("a", "Another Path").attr("href", "path/"));
 h3("Step 1: Fork the Repo");
 h3("Step 2: Configure GitHub Pages");
 h3("Step 3: Profit");
+
+p("This is my new feature.");
